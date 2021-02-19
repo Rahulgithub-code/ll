@@ -19,7 +19,6 @@ export class EmployeeDetailsComponent implements OnInit {
   emp: Employee = new Employee()
   constructor(private _empService: EmpDataService, private _actRouter: ActivatedRoute, private _location: Location, private _router: Router) {
     this.urlId = _actRouter.snapshot.params['id']
-
   }
 
   ngOnInit(): void {
