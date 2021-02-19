@@ -1,0 +1,32 @@
+<div class="container text-center">
+    <button class="btn btn-info" routerLink='/employee-list/0'>Add New Employee</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <th class="text">Action</th>
+        <th class="text">Id</th>
+        <th class="text">First Name</th>
+        <th class="text">Last Name</th>
+        <th class="text">Salary</th>
+        <th class="text">Department</th>
+    </thead>
+    <tbody *ngFor="let empData of EmpDatas; let j=index">
+        <tr>
+            <td class="text">
+                <i class="fas fa-plus" *ngIf="newArray[j] == false" (click)="toggleON(j)"></i>
+                <i class="fas fa-minus" *ngIf="newArray[j] == true" (click)="toggleON(j)"></i>
+            </td>
+            <td class="text">{{empData.id}}</td>
+            <td class="text">{{empData.fname}}</td>
+            <td class="text">{{empData.lname}}</td>
+            <td class="text">{{empData.salary}}</td>
+            <td class="text">{{empData.department}}</td>
+        </tr>
+        <tr *ngIf="newArray[j] == true">
+                <td colspan="6">
+                    <app-employee-details (toggle)="toggleON($event)" [cIndex]='index'></app-employee-details>
+                </td>
+        </tr>
+    </tbody>
+</table>
+
