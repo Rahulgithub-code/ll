@@ -23,10 +23,98 @@
             <td class="text">{{empData.department}}</td>
         </tr>
         <tr *ngIf="newArray[j] == true">
-                <td colspan="6">
-                    <app-employee-details (toggle)="toggleON($event)" [cIndex]='index'></app-employee-details>
-                </td>
+            <td colspan="6">
+                <app-employee-details (toggle)="toggleON($event)" [cIndex]='index'></app-employee-details>
+            </td>
         </tr>
     </tbody>
 </table>
 
+<h2>Nested Json Object</h2>
+<ul *ngFor="let i of newCompany">
+    <li>
+        {{i.name}}
+    </li>
+    <ul *ngFor="let j of i.address">
+        <li>
+            {{j.city}}
+            {{j.state}}
+        </li>
+    </ul>
+</ul>
+
+<h2>Find Average of given number - </h2>
+<div class="form-inline">
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="num1" [(ngModel)]='num1'>
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="num2" [(ngModel)]='num2'>
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="num3" [(ngModel)]='num3'>
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="num4" [(ngModel)]='num4'>
+    </div>
+    <button class="btn btn-info" (click)='getAvgData()'>
+        Average
+    </button>
+    <div>
+        <p class="text">Result : {{avgResult}}</p>
+
+        <h2>Compare of given number - </h2>
+        <div class="form-inline">
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="num1" [(ngModel)]='num1c'>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="num2" [(ngModel)]='num2c'>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="num3" [(ngModel)]='num3c'>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="num4" [(ngModel)]='num4c'>
+            </div>
+            <button class="btn btn-info" (click)='getComData()'>
+                Compare
+            </button>
+            <div>
+                <p class="text">Result : {{comResult}}</p>
+                <h2>Dynamic color bind and description is Model view</h2>
+                <div class="container" >
+
+                    <!-- Trigger the modal with a button -->
+
+                    <ul >
+                        <li class="text2" *ngFor="let i of arrayData; index as j" [ngStyle]="{'color': getColor(i.status)}">
+                            {{i.id}} {{i.name}} {{i.status}}
+                            <button type="button" class="btn btn-info clr" data-toggle="modal"
+                                data-target="#myModal" (click)="listIndex(i.id)">Detail</button>
+                        </li>
+                    </ul>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Description</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Address : {{descObject.address}} </p>
+                                    <p>Branch :  {{descObject.branch}}</p>
+                                    <p>Collge :  {{descObject.college}}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary clr" routerLink='/form'>Form Task</button>
+                <a class="btn btn-primary clr" routerLink='/table-task'>Table Task</a>
+
+    

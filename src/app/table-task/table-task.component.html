@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+        <tr >
+            <th></th>
+            <th *ngFor='let j of monthsArray'>{{j.month}}[{{j.firstDate}}-{{j.lastDate}}]</th>
+        </tr>
+    </thead>
+    <tbody *ngFor='let i of taskData; index as j'>
+        <tr>
+            <td>{{i.task}}</td>
+            <td *ngFor="let k of months; index as l">
+                <span *ngIf="k==emptyArray[j]">Completed</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

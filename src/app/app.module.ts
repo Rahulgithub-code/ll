@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component'
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { FormComponent } from './form/form.component';
+import { TableTaskComponent } from './table-task/table-task.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    FormComponent,
+    TableTaskComponent
   ],
   imports: [
     BrowserModule,

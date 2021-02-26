@@ -16,15 +16,16 @@ export class EmployeeDetailsComponent implements OnInit {
   urlId: any;
   empId;
   isIdDisabled = true;
-  emp: Employee = new Employee()
+
+  emp: Employee = new Employee();
   constructor(private _empService: EmpDataService, private _actRouter: ActivatedRoute, private _location: Location, private _router: Router) {
     this.urlId = _actRouter.snapshot.params['id']
   }
-
   ngOnInit(): void {
     /*When urlId is 0 */
     if (this.urlId == 0) {
       this.isIdDisabled = false
+      //localStorage.removeItem('id')
     }
 
     /*When urlId is greater than 0 */
