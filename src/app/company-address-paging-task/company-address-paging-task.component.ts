@@ -1,0 +1,53 @@
+import { Component, OnInit } from '@angular/core';
+import { Address } from './address';
+import { Company } from './company';
+import { DataService } from './data.service';
+
+@Component({
+  selector: 'app-company-address-paging-task',
+  templateUrl: './company-address-paging-task.component.html',
+  styleUrls: ['./company-address-paging-task.component.scss']
+})
+export class CompanyAddressPagingTaskComponent implements OnInit {
+
+  company:Company[];
+  address:Address[];
+  totalRecords:number;
+  page:number=1;
+  addressArray=[]
+  notFoundMsg:string;
+  itemsPerPageLength:number;
+  constructor(private _dataService:DataService) {
+   }
+
+  ngOnInit(): void {
+    
+    this.company = this._dataService.company;
+    this.address = this._dataService.address;
+    this.totalRecords=this._dataService.company.length
+    this.itemsPerPageLength=5
+    //console.log(this.company);
+    //console.log(this.address);
+  }
+  showDetails(id:number){
+    this.addressArray.splice(0,this.addressArray.length)
+    this.notFoundMsg=null
+    console.log(id);
+    for(let i of this.address){
+      if(id==i.c_id){
+        this.addressArray.push(i)
+      }
+    }
+    
+    console.log(this.addressArray);
+    if(this.addressArray.length==0){
+      this.notFoundMsg="Address Not Found."
+    }
+    console.log(this.notFoundMsg);
+    
+  }
+  change(i:number){
+    this.itemsPerPageLength=i
+  }
+
+}

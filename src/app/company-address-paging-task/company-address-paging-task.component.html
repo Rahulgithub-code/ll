@@ -1,0 +1,55 @@
+<div class="main">
+
+    <div class="row">
+        <div class="column">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Sector</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of company | paginate: { id:'listing_paginate',
+                   itemsPerPage: itemsPerPageLength, currentPage: page, totalItems: totalRecords}; index as j">
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.sector}}</td>
+                        <td style="text-align: center;">
+                            <i class="fas fa-info" (click)='showDetails(i.id)'></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="paginate">
+                <pagination-controls id='listing_paginate' maxSize='5' directionLinks='true' (pageChange)="page=$event">
+                </pagination-controls>
+                <div class="pageLength">
+                    <select #selectValue (change)="change(selectValue.value)">
+                        <option>Page Range</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="column">
+            <h1 class="text-center">Company Details</h1>
+            <div class="details" *ngFor="let i of addressArray; index as j">
+                <p class="text"><b>Addree{{j+1}}</b>
+                    {{i.address}} {{i.city}} {{i.state}} {{i.zipcode}}
+                </p>
+            </div>
+            <div class="notFound">
+                <p>{{notFoundMsg}}</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>

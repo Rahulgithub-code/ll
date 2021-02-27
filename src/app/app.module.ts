@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { FormComponent } from './form/form.component';
-import { TableTaskComponent } from './table-task/table-task.component'
+import { TableTaskComponent } from './table-task/table-task.component';
+import { CompanyAddressPagingTaskComponent } from './company-address-paging-task/company-address-paging-task.component'
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { TableTaskComponent } from './table-task/table-task.component'
     EmployeeListComponent,
     EmployeeDetailsComponent,
     FormComponent,
-    TableTaskComponent
+    TableTaskComponent,
+    CompanyAddressPagingTaskComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NgxPaginationModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
