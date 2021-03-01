@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="column">
-            <table class="table ">
+            <table class="table "> 
                 <thead>
                     <tr>
                         <th>S.No</th>
@@ -12,9 +12,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                  
                     <tr *ngFor="let i of company | paginate: { id:'listing_paginate',
                    itemsPerPage: itemsPerPageLength, currentPage: page, totalItems: totalRecords}; index as j">
-                        <td>{{i.id}}</td>
+                        <td>
+                            <input type="checkbox" #check (change)="onChange(i.id,check.checked)">
+                            {{i.id}}
+                        </td>
                         <td>{{i.name}}</td>
                         <td>{{i.sector}}</td>
                         <td style="text-align: center;">
@@ -22,6 +26,7 @@
                         </td>
                     </tr>
                 </tbody>
+                <button class="btn btn-danger" (click)="remove()" >Remove</button>
             </table>
             <div class="paginate">
                 <pagination-controls id='listing_paginate' maxSize='5' directionLinks='true' (pageChange)="page=$event">
@@ -49,7 +54,5 @@
                 <p>{{notFoundMsg}}</p>
             </div>
         </div>
-
     </div>
-
 </div>
