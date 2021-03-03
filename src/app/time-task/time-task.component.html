@@ -1,0 +1,21 @@
+<button class="btn btn-info" routerLink="/time-task/0">Add New Task</button>
+<div class="container1">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of time_header">
+                <td>{{i.id}}</td>
+                <td>{{i.start_date}}</td>
+                <td>{{i.end_date}}</td>
+                <td>{{i.total_hours}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

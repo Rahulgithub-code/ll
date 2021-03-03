@@ -11,6 +11,8 @@ import { FormComponent } from './form/form.component';
 import { TableTaskComponent } from './table-task/table-task.component';
 import { CompanyAddressPagingTaskComponent } from './company-address-paging-task/company-address-paging-task.component'
 import {NgxPaginationModule} from 'ngx-pagination';
+import { TimeTaskComponent } from './time-task/time-task.component';
+import { TimeDetailsComponent } from './time-task/time-details/time-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     EmployeeDetailsComponent,
     FormComponent,
     TableTaskComponent,
-    CompanyAddressPagingTaskComponent
+    CompanyAddressPagingTaskComponent,
+    TimeTaskComponent,
+    TimeDetailsComponent
   ],
   imports: [
     BrowserModule,

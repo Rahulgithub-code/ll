@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Address } from './address';
 import { Company } from './company';
 import { DataService } from './data.service';
@@ -25,8 +24,8 @@ export class CompanyAddressPagingTaskComponent implements OnInit {
 
     this.company = this._dataService.company;
     this.address = this._dataService.address;
-    this.totalRecords = this._dataService.company.length
-    this.itemsPerPageLength = 5
+    this.totalRecords = this._dataService.company.length;
+    this.itemsPerPageLength = 5;
     //console.log(this.company);
     //console.log(this.address);
   }
@@ -57,6 +56,7 @@ export class CompanyAddressPagingTaskComponent implements OnInit {
       this.idArray.push({id:id});
     }
     else{
+      
       for(let i=0; i<this.idArray.length;i++){
         if(id==this.idArray[i].id){
           let index = this.idArray.indexOf(this.idArray[i])

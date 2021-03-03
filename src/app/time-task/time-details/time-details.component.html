@@ -1,0 +1,57 @@
+<div class="container">
+    <form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+        <div class="form-group">
+            <label>Start Date:</label>
+            <input type="date" class="form-control"  name="start_date" ngModel="{{header_data.start_date}}" required>
+        </div>
+        <div class="form-group">
+            <label>End Date:</label>
+            <input type="date" class="form-control"  name="end_date" ngModel="{{header_data.end_date}}" required>
+        </div>
+        <div class="form-group">
+            <label>Total Hours:</label>
+            <input type="number" class="form-control"  name="total_hours" ngModel="{{header_data.total_hours}}">
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!formData.valid" >Submit</button>
+    </form>
+</div>
+<div class="container" [ngStyle]="{'display': hideShow}">
+    <button type="button" class="btn btn-info" style="float: right;" (click)="showForm()">Add task</button>
+    <div class="container" [ngStyle]="{'display': hideShowForm}">
+        <form class="form-inline" #taskData="ngForm" (ngSubmit)="onTaskDataSubmit(taskData)">
+            <div class="form-group">
+                <label>Task:</label>
+                <input type="text" class="form-control" placeholder="Enter task name" name="task" ngModel required>
+              </div>
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="date" class="form-control" name="date" ngModel required>
+              </div>
+              <div class="form-group">
+                <label>Hours:</label>
+                <input type="number" class="form-control" name="hours" ngModel required>
+              </div>
+              
+              <button type="submit" class="btn btn-default"[disabled]="!taskData.valid">Submit</button>
+        </form>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Task</th>
+                <th>Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of timeLine_data">
+                <td>{{i.id}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.task}}</td>
+                <td>{{i.hours}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

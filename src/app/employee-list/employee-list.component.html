@@ -83,15 +83,16 @@
             <div>
                 <p class="text">Result : {{comResult}}</p>
                 <h2>Dynamic color bind and description is Model view</h2>
-                <div class="container" >
+                <div class="container">
 
                     <!-- Trigger the modal with a button -->
 
-                    <ul >
-                        <li class="text2" *ngFor="let i of arrayData; index as j" [ngStyle]="{'color': getColor(i.status)}">
+                    <ul>
+                        <li class="text2" *ngFor="let i of arrayData; index as j"
+                            [ngStyle]="{'color': getColor(i.status)}">
                             {{i.id}} {{i.name}} {{i.status}}
-                            <button type="button" class="btn btn-info clr" data-toggle="modal"
-                                data-target="#myModal" (click)="listIndex(i.id)">Detail</button>
+                            <button type="button" class="btn btn-info clr" data-toggle="modal" data-target="#myModal"
+                                (click)="listIndex(i.id)">Detail</button>
                         </li>
                     </ul>
                     <!-- Modal -->
@@ -104,8 +105,8 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Address : {{descObject.address}} </p>
-                                    <p>Branch :  {{descObject.branch}}</p>
-                                    <p>Collge :  {{descObject.college}}</p>
+                                    <p>Branch : {{descObject.branch}}</p>
+                                    <p>Collge : {{descObject.college}}</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -117,5 +118,4 @@
                 <button class="btn btn-primary clr" routerLink='/form'>Form Task</button>
                 <a class="btn btn-primary clr" routerLink='/table-task'>Table Task</a>
                 <a class="btn btn-primary clr" routerLink='/paging-task'>Company Address Paging Task</a>
-
-    
+                <a class="btn btn-primary clr" routerLink='/time-task'>Time-Time-Line Task</a>
